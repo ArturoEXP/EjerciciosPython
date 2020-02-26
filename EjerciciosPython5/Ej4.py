@@ -30,27 +30,26 @@ class Persona:
 
 
     def morosidad(self):
-        cuentas = self.cuentas.keys()
-        for i in cuentas:
-            print(i)
+        cuentas = self.cuenta.values(numCuenta)
+        print(cuentas)
+        
 
 
-persona = Persona(1234546)
+class PruebaCuentas:
+    persona = Persona("53189747Q")
 
-cuenta1 = Cuenta(12516, 0)
-cuenta2 = Cuenta(12565, 121)
-cuenta3 = Cuenta(12564, 111)
-cuenta4 = Cuenta(125654, 0)
+    cuenta1 = Cuenta("cuenta1", 0)
+    cuenta2 = Cuenta("cuenta2", 700)
 
-persona.addCuentas(cuenta1)
-persona.addCuentas(cuenta2)
-persona.addCuentas(cuenta3)
-persona.addCuentas(cuenta4)
+    persona.addCuentas(cuenta1)
+    persona.addCuentas(cuenta2)
 
-print(persona.__dict__)
+    cuenta1.recibirAbonos(1100)
+    cuenta2.pagarRecibos(750)
 
-cuenta1.pagarRecibos(25)
+    persona.morosidad()
 
-print(persona.__dict__)
 
-persona.morosidad()
+pruebaCuentas = PruebaCuentas()
+
+
