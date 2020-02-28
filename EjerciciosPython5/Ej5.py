@@ -1,5 +1,3 @@
-import collections
-
 class Libro:
     def __init__(self, titulo, autor, numPags, clasificacion = None):
         self.titulo = titulo
@@ -8,13 +6,13 @@ class Libro:
         self.clasificacion = range(1, 10)
 
     def devolverTitulo(self):
-        print("El título del libro es: " + self.titulo)
+        return self.titulo
 
     def devolverAutor(self):
-        print("El autor es: " + self.autor)
+        return self.autor
 
     def devolverNumPags(self):
-        print("El libro tiene: " + self.numPags + " páginas")
+        return self.numPags
 
     def cambiarTitulo(self):
         self.titulo = input("Inserte el nuevo título del libro")
@@ -33,24 +31,42 @@ class Libro:
             else:
                 print("Inserte un número del 1 al 10 \n")
 
+    def buscarLibro(self):
+        busqueda = input("Inserte el titulo o el autor del libro")
+        if busqueda == self.titulo or self.autor:
+            return Libro()
+
 
 class ConjuntoLibros:
-    def __init__(self):
-        self.libros = collections.deque(maxlen=3)
+    def __init__(self, libros = []):
+        self.libros = libros
 
     def anadirLibros(self, libro):
-        self.libros.append(libro)
+        if len(self.libros) <= 3:
+            self.libros.append(libro)
+            print("El libro " + str(libro.devolverTitulo()) + " se ha añadido correctamente")
+        else:
+            print("No es posible insertar más libros en la colección, está llena")
 
+    def eliminarLibros(self, busqueda):
+                
+        print(str(self.libros))
     
 
 
 class PruebaLibros:
-    libro1 = Libro("Lo que el viento se llevó", "Margaret Mitchell", 1037)
-    libro2 = Libro("Harry Potter y la piedra filosofal", "J. K. Rowling", 256)
+    libro1 = Libro("Lo que el viento se llevó", "Margaret Mitchell", 1037, 7.00)
+    libro2 = Libro("Harry Potter y la piedra filosofal", "J. K. Rowling", 256, 8.00)
+    libro3 = Libro("TEO EN EL PARQUE NATURAL", "Violeta Denou", 20, 10.00)
     conjunto = ConjuntoLibros()
 
     conjunto.anadirLibros(libro1)
     conjunto.anadirLibros(libro2)
+    conjunto.anadirLibros(libro3)
+
+    conjunto.eliminarLibros("Lo que el viento se llevó")
+
+prueba = PruebaLibros()
 
     
 
