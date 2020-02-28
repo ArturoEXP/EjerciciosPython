@@ -16,25 +16,21 @@ class Libro:
 
     def cambiarTitulo(self):
         self.titulo = input("Inserte el nuevo título del libro")
-        print("El título actual del libro es: " + self.titulo)
+        print("El título actual del libro es: ").format(self.titulo)
 
     def cambiarAutor(self):
         self.autor = input("Inserte el nuevo nombre del autor")
-        print("El nombre del autor del libro: " + self.titulo + " es: " + self.autor)
+        print("El nombre del autor del libro: {} es: {}").format(self.titulo, self.autor)
 
     def puntuar(self):
         while True:
             self.clasificacion = input("Inserte una puntuación del 1 al 10: ")
             if self.clasificacion > 0 or self.clasificacion < 10:
-                print("La clasificación del título " + self.titulo + " es ahora de: " + self.clasificacion + " puntos")
+                print("La clasificación del título {} es ahora de: {} puntos").format(self.titulo, self.clasificacion)
                 break
             else:
                 print("Inserte un número del 1 al 10 \n")
 
-    def buscarLibro(self):
-        busqueda = input("Inserte el titulo o el autor del libro")
-        if busqueda == self.titulo or self.autor:
-            return Libro()
 
 
 class ConjuntoLibros:
@@ -52,7 +48,6 @@ class ConjuntoLibros:
                 
         print(str(self.libros))
     
-
 
 class PruebaLibros:
     libro1 = Libro("Lo que el viento se llevó", "Margaret Mitchell", 1037, 7.00)

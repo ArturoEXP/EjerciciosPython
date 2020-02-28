@@ -36,10 +36,9 @@ class Persona:
             if c["numCuenta"] == numCuentaEmisor:
                 c["saldo"] -= saldoAenviar
             elif c["numCuenta"] == numCuentaReceptor:
-                numCuenta2 = numCuentaReceptor
                 c["saldo"] += saldoAenviar
             else:
-                print("El número de cuenta: " + str(c["numCuenta"]) + " no existe como cuenta de esta persona")
+                print("El número de cuenta: {} no existe como cuenta de esta persona").format(c["numCuenta"])
 
             
 
@@ -60,9 +59,6 @@ class PruebaCuentas:
     persona.morosidad()
     cuenta1.consultarSaldo()
     cuenta2.consultarSaldo()
-
-
-
 
 
 pruebaCuentas = PruebaCuentas()
